@@ -7,6 +7,7 @@ interface Todo {
 }
 
 const todos: Array<Todo> = [];
+console.log(todos);
 
 const todosContainer = document.querySelector(
   ".todoContainer"
@@ -16,10 +17,17 @@ const todoInput = document.getElementById("todoInput") as HTMLInputElement;
 
 const myForm = document.getElementById("myForm") as HTMLFormElement;
 
-const btn = document.getElementById("btn") as HTMLButtonElement;
+console.log(todoInput.value);
 
-btn.onclick = myForm.submit;
-
-myForm.onsubmit = (e) => {
+myForm.onsubmit = (e: SubmitEvent) => {
   e.preventDefault();
+
+  const todo: Todo = {
+    title: todoInput.value,
+    isComplete: false,
+    index: String(Math.random() * 100),
+  };
+
+  todos.push(todo);
+  console.log(todos);
 };

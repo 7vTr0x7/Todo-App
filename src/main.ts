@@ -43,6 +43,7 @@ const generateTodoItem = (title: string, isComplete: boolean, id: string) => {
   checkBox.checked = isComplete;
 
   const paragraph: HTMLParagraphElement = document.createElement("p");
+  paragraph.innerText = title;
 
   const btn: HTMLButtonElement = document.createElement("button");
   btn.innerText = "X";

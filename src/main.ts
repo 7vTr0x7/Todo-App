@@ -32,6 +32,19 @@ myForm.onsubmit = (e: SubmitEvent) => {
   renderTodos(todos);
 };
 
+const generateTodoItem = (title: string, isComplete: boolean, id: string) => {
+  const todo: HTMLDivElement = document.createElement("div");
+  todo.className = "todo";
+
+  // checkbox
+  const checkBox: HTMLInputElement = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+  checkBox.className = "isCompleted";
+  checkBox.checked = isComplete;
+};
+
 const renderTodos = (todos: Todo[]) => {
-  todos.forEach((item) => {});
+  todos.forEach((item) => {
+    generateTodoItem();
+  });
 };

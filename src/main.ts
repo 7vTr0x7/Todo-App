@@ -29,5 +29,9 @@ myForm.onsubmit = (e: SubmitEvent) => {
   };
 
   todos.push(todo);
-  console.log(todos);
+  renderTodos(todos);
+};
+
+const renderTodos = (todos: Todo[]) => {
+  todos.forEach((item) => {});
 };

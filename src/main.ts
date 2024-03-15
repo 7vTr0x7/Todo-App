@@ -48,8 +48,9 @@ const generateTodoItem = (title: string, isComplete: boolean, id: string) => {
   const btn: HTMLButtonElement = document.createElement("button");
   btn.innerText = "X";
   btn.className = "deleteBtn";
+  btn.style.backgroundColor = "blue";
 
-  todo.append(checkBox, paragraph, btn);
+  todo.append(btn, checkBox, paragraph);
   todosContainer.append(todo);
 };
 

@@ -3,7 +3,7 @@ import "./style.css";
 interface Todo {
   title: string;
   isComplete: boolean;
-  readonly index: string;
+  readonly id: string;
 }
 
 const todos: Array<Todo> = [];
@@ -25,7 +25,7 @@ myForm.onsubmit = (e: SubmitEvent) => {
   const todo: Todo = {
     title: todoInput.value,
     isComplete: false,
-    index: String(Math.random() * 100),
+    id: String(Math.random() * 100),
   };
 
   todos.push(todo);
@@ -41,10 +41,19 @@ const generateTodoItem = (title: string, isComplete: boolean, id: string) => {
   checkBox.setAttribute("type", "checkbox");
   checkBox.className = "isCompleted";
   checkBox.checked = isComplete;
+
+  const paragraph: HTMLParagraphElement = document.createElement("p");
+
+  const btn: HTMLButtonElement = document.createElement("button");
+  btn.innerText = "X";
+  btn.className = "deleteBtn";
+
+  todo.append(checkBox, paragraph, btn);
+  todosContainer.append(todo);
 };
 
 const renderTodos = (todos: Todo[]) => {
   todos.forEach((item) => {
-    generateTodoItem();
+    generateTodoItem(item.title, item.isComplete, item.id);
   });
 };
